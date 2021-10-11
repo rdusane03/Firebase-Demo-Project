@@ -1,0 +1,139 @@
+<div class="background">
+<div *ngIf="users.length">
+  
+  <div class="text-right">
+    
+    <a class="dropdown-item" style="text-align:lef" [routerLink]="['/home/adduser']"><b>Add User</b></a>
+<br>
+<br>
+    
+    
+  </div>
+
+  <h3 style="color:steelblue">&nbsp;&nbsp;Users List</h3>
+
+
+  <div class="text-right">
+    
+  </div>
+
+  <br>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+
+        <th style="text-align:center; color:steelblue">Firstname</th>
+        <th style="text-align:center; color:steelblue">Lastname</th>
+        <th style="text-align:center; color:steelblue">Email</th>
+        <th style="text-align:center; color:steelblue">Age</th>
+        <th style="text-align:center; color:steelblue">Contact No</th>
+        <th style="text-align:center; color:steelblue"> &nbsp; &nbsp;&nbsp;Options</th>
+
+
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+
+        <td style="text-align:center">{{user.firstName}}</td>
+        <td style="text-align:center">{{user.lastName}}</td>
+        <td style="text-align:center">{{user.email}}</td>
+        <td style="text-align:center">{{user.age}}</td>
+        <td style="text-align:center">{{user.contactNumber}}</td>
+        <td style="text-align:center">
+          <button type="button" style="font-size:10px" class="btn btn-primary" (click)="setUserDetails(user)">
+            Edit User
+          </button>
+          &nbsp; &nbsp;
+          <button type="button" style="font-size:10px" class="btn btn-danger" (click)="deleteUser(user)">
+            Delete User
+          </button>
+
+
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
+
+<div *ngIf="showUser">
+
+
+
+  <div class="col-6 border"
+    style="margin-left: 280px; padding: 60px; border-radius: 20px; border-color: mediumblue; border-width: 30px;">
+    <h3 style="text-align:center; color:steelblue"><u>Update User</u></h3>
+    <br>
+
+
+    <form (ngSubmit)="updateUser()">
+      <div class="row mb-4">
+        <div class="col">
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" class="form-control" placeholder="Enter Firstname" id="firstName" required
+          [(ngModel)]="showUser.firstName" name="firstName">
+      </div>
+      </div>
+      </div>
+      <!-- Last name -->
+      <div class="row mb-4">
+        <div class="col">
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input type="text" class="form-control" placeholder="Enter Lastname" id="lastName" required
+          [(ngModel)]="showUser.lastName" name="lastName">
+      </div>
+      </div>
+      </div>
+      <!-- Email -->
+      <div class="row mb-4">
+        <div class="col">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" placeholder="Enter email" id="email" required
+          [(ngModel)]="showUser.email" name="email">
+      </div></div>
+      </div>
+      <!-- Age --><div class="row mb-4">
+                <div class="col">
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number" class="form-control" placeholder="Enter Age" id="age" required [(ngModel)]="showUser.age"
+          name="age">
+      </div></div></div>
+      <!-- Contact No -->
+      <div class="row mb-4">
+        <div class="col">
+      <div class="form-group">
+        <label for="contactNumber">Contact No:</label>
+        <input type="text" class="form-control" placeholder="Enter Contact No" id="contactNumber" required
+          [(ngModel)]="showUser.contactNumber" name="contactNumber">
+      </div>
+      </div>
+      </div>
+      <br>
+      <div class="text-center">
+        <button type="submit" class="btn btn-success">Update</button>
+      </div>
+
+    </form>
+  </div>
+</div>
+</div>
+<script>
+  let pathname = window.location.pathname;
+  if (pathname == "") {
+    $(".nav .nav-item a:first").addClass("active");
+    $(".nav .nav-item a:last").removeClass("active");
+  } else if (pathname == "/customers") {
+    $(".nav .nav-item a:last").addClass("active");
+    $(".nav .nav-item a:first").removeClass("active");
+  }
+  alert("ok");
+</script>

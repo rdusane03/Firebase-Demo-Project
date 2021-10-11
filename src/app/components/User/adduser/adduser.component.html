@@ -1,0 +1,68 @@
+<div class="row">
+    
+    <div class="col-sm-2"></div>
+    <div class="col-6 border" style="margin: 40px; padding: 60px; border-radius: 20px; border-color: mediumblue; border-width: 30px;">
+        <form (ngSubmit)="onSubmit()">
+            
+           
+            <div class="d-flex justify-content-center">
+               
+                <h3 class="card-title" style="color:rgb(13, 9, 71); font-family:cursive;"><b><u>Add User</u></b></h3>
+            </div>
+            <br>
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="firstName" styles="color:rgb(13, 9, 71); font-family:cursive;">First Name:</label>
+                        <input type="text" class="form-control" placeholder="Enter firstname" 
+                                  id="firstName" required [(ngModel)]="user.firstName" name="firstName" style="color:rgb(13, 9, 71); font-family:cursive;">
+                      </div>
+
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="lastName" styles="color:rgb(13, 9, 71); font-family:cursive;">Last Name:</label>
+                        <input type="text" class="form-control" placeholder="Enter lastname" 
+                                  id="lastName" required [(ngModel)]="user.lastName" name="lastName" style="color:rgb(13, 9, 71); font-family:cursive;">
+                      </div>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="email" styles="color:rgb(13, 9, 71); font-family:cursive;">Email:</label>
+                        <input type="email" class="form-control" placeholder="Enter email" 
+                                  id="email" required [(ngModel)]="user.email" name="email" style="color:rgb(13, 9, 71); font-family:cursive;">
+                      </div>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="age" styles="color:rgb(13, 9, 71); font-family:cursive;">Age:</label>
+                        <input type="number" class="form-control" placeholder="Enter age" 
+                                  id="age" required [(ngModel)]="user.age" name="age" style="color:rgb(13, 9, 71); font-family:cursive;">
+                      </div>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="ContactNo" styles="color:rgb(13, 9, 71); font-family:cursive;">Contact No:</label>
+                        <input type="text" class="form-control" placeholder="Enter contact no" minlength=10
+                                  id="contactNumber" required [(ngModel)]="user.contactNumber" name="contactNumber" style="color:rgb(13, 9, 71); font-family:cursive;">
+                      </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary" style="font-family:cursive;"><b>Submit</b></button>
+            </div>
+
+    </form>
+    </div>
+</div>
+
+

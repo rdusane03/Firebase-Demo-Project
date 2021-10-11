@@ -1,0 +1,48 @@
+
+<div class="container">  
+<br>
+  <div class="col-md-6">
+    <div class="col-6 border" style="margin-left: 500px; padding: 20px; border-radius: 20px; border-color: mediumblue; border-width: 30px;">
+      <h2>&nbsp;&nbsp;Add New User</h2>  
+      <form (ngSubmit)="userSubmit()" #addform="ngForm">  
+        <div class="form-group">  
+          <label for="firstname">FirstName</label>  
+          <input type="text" [(ngModel)]="model.firstName" name="firstname" class="form-control" id="firstname" required #firstname="ngModel">  
+        </div>  
+          
+        <div class="form-group">  
+          <label for="lastname">LastName</label>  
+          <input type="text" [(ngModel)]="model.lastName" name="lastname" class="form-control" id="lastname" required #lastname="ngModel">  
+        </div>  
+        
+        <div class="form-group">  
+          <label for="mobile_no">Mobile Number</label>  
+          <input type="text" [(ngModel)]="model.mobile" name="mobile_no" class="form-control" id="mobile_no" required #mobileno="ngModel">  
+        </div>  
+      
+        <br>
+        <button type="submit" class="btn btn-primary form-control" [disabled]="!addform.form.valid">Add User</button>  
+     </form>  
+    </div>
+    </div>  
+    
+    
+  </div>  
+  <hr>  
+  <div class="container" *ngIf="Users ;else noData">  
+    <ul *ngFor="let item of Users" class="list-group">  
+      <li class="list-group-item">  
+        <strong>{{item.firstName}}  {{item.lastName}}</strong> : {{item.mobile}}  
+    
+        <a (click)="onDelete(item)" >  
+          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>  
+        </a>  
+      </li>  
+    </ul>  
+  </div>  
+  <div class="container">  
+    <ng-template #noData>  
+      <hr>  
+      <h5>There are no users to display</h5>  
+    </ng-template>  
+  </div>  

@@ -1,0 +1,16 @@
+<div class="card">
+    <div class="card-header">List of Files</div>
+    <div *ngIf="fileUploads;else loading">
+    <ul
+      class="list-group list-group-flush"
+      *ngFor="let file of fileUploads"
+    >
+      <li class="list-group-item">
+        <upload-details [fileUpload]='file'></upload-details>
+        
+      </li>
+    </ul>
+  </div>
+  <ng-template #loading >
+    <p class="Loading">Loading...</p></ng-template>
+  </div>
